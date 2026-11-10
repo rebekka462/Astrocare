@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
+<meta name="description" content="ASTROCARE — astronaut health monitoring prototype with transparent demo telemetry and NASA research references.">
+<title>ASTROCARE | Mission Health</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">✦</div><div><strong>ASTROCARE</strong><small>MISSION HEALTH SYSTEM</small></div></div>
+  <div class="mission-chip"><span class="pulse-dot"></span><span>MISSION SIMULATION</span><b>DEMO</b></div>
+  <div class="nav-label">MISSION CONTROL</div>
+  <nav id="navigation">
+    <button class="nav-item active" data-page="overview"><span>◫</span>Mission Overview</button>
+    <button class="nav-item" data-page="vitals"><span>♡</span>Vital Signs</button>
+    <button class="nav-item" data-page="cardio"><span>⌁</span>Cardiovascular Health</button>
+    <button class="nav-item" data-page="bone"><span>⌖</span>Bone & Muscle Health</button>
+    <button class="nav-item" data-page="sleep"><span>☾</span>Sleep & Fatigue</button>
+    <button class="nav-item" data-page="mental"><span>◎</span>Mental Wellness</button>
+    <button class="nav-item" data-page="radiation"><span>☢</span>Radiation Tracker</button>
+    <button class="nav-item" data-page="alerts"><span>⚑</span>Alert Centre <i id="alert-count">0</i></button>
+    <button class="nav-item" data-page="history"><span>▤</span>Health History</button>
+    <button class="nav-item" data-page="research"><span>◉</span>NASA Research Data</button>
+    <button class="nav-item" data-page="references"><span>⌘</span>References & Data</button>
+    <button class="nav-item" data-page="settings"><span>⚙</span>Settings</button>
+  </nav>
+  <div class="sidebar-bottom"><div class="connection"><span class="green-dot"></span><span>LOCAL STORAGE ACTIVE</span></div><small>ASTROCARE v1.0 · PROTOTYPE</small></div>
+</aside>
+<main class="main-area">
+<header class="topbar"><button class="mobile-menu" id="menu-toggle">☰</button><div><div class="eyebrow">HUMAN SPACEFLIGHT / HEALTH & PERFORMANCE</div><h1 id="page-title">Mission Overview</h1></div><div class="top-actions"><div class="comm-status"><span class="amber-dot"></span><span>DELAYED COMMS</span></div><button class="icon-btn" id="quick-report" title="Export medical report">⇩</button><div class="avatar" id="avatar">RM</div></div></header>
+<div class="demo-banner"><b>SIMULATED DEMONSTRATION</b><span>All live-looking vital readings and mission records in this prototype are synthetic. Not for clinical use.</span><button id="banner-close" aria-label="Dismiss">×</button></div>
+<section id="page-content" class="page-content" aria-live="polite"></section>
+<footer class="footer"><span>ASTROCARE · Independent student prototype · Not affiliated with or endorsed by NASA</span><span id="last-updated">Last updated —</span></footer>
+</main></div>
+<div class="toast" id="toast" role="status"></div>
+<dialog id="record-dialog"><form method="dialog" id="record-form"><div class="dialog-head"><div><div class="eyebrow">MISSION LOG</div><h2>Add health record</h2></div><button class="icon-btn" value="cancel">×</button></div><div class="form-grid">
+<label>Heart rate (bpm)<input name="hr" type="number" min="25" max="220" value="72"></label><label>SpO₂ (%)<input name="spo2" type="number" min="50" max="100" value="98"></label><label>Temperature (°C)<input name="temp" type="number" min="30" max="43" step="0.1" value="36.7"></label><label>Blood pressure (mmHg)<input name="systolic" type="number" min="50" max="250" value="118"><input name="diastolic" type="number" min="30" max="150" value="76" aria-label="Diastolic"></label><label>Sleep (hours)<input name="sleep" type="number" min="0" max="24" step="0.1" value="7.5"></label><label>Stress (0–10)<input name="stress" type="number" min="0" max="10" value="3"></label><label>Exercise (minutes)<input name="exercise" type="number" min="0" max="600" value="45"></label><label>Radiation (mSv, demo/manual)<input name="radiation" type="number" min="0" max="100" step="0.001" value="0.12"></label><label class="wide">Notes<textarea name="notes" rows="2" placeholder="Optional observation…"></textarea></label></div><div class="dialog-actions"><button class="btn secondary" value="cancel">Cancel</button><button class="btn primary" id="save-record" value="default">Save record</button></div></form></dialog>
+<script src="nasa-cbc-data.js"></script>
+<script src="script.js"></script>
+</body></html>
